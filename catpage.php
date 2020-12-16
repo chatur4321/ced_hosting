@@ -1,6 +1,10 @@
 <?php
-include("header.php");
-$id = $_GET['id'];
+if(isset($_GET['id']))
+{
+    $id = $_GET['id'];
+
+    include("header.php");
+
 $sql = $pdt->fetchpage($obj->conn, $id);
 foreach ($sql as $key => $values) {
 ?>
@@ -283,6 +287,14 @@ $array = json_decode($dep, true);
 </div>
 </div>
 
+
+
 <?php
 include("footer.php");
+}
+else{
+    echo "<script>alert('please provide a valid id');
+    window.location.href = 'index.php';
+</script>";
+}
 ?>

@@ -102,7 +102,7 @@
               <h3 class="mb-0">Light table</h3>
             </div> -->
             <div class="table-responsive">
-            <table class="table align-items-center table-flush" id="Table">
+            <table class="table align-items-center table-flush" id="Table" style="text-align:center;">
                 <thead class="thead-light">
                   <tr>
                     <!-- <th scope="col" class="sort" data-sort="name">Id</th> -->
@@ -135,9 +135,7 @@
                     
                 ?>
                   <tr>
-                    <th scope="row">
-                        <?php echo $row['id']; ?>
-                    </th>
+                    
                     <td class="budget">
                     <?php 
                     if ($row['prod_parent_id']==1) {
@@ -190,14 +188,15 @@
 
         <div class="md-form mb-5">
         <label data-error="wrong" data-success="right" for="defaultForm-email">Product Name</label>
-          <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $row['prod_name'] ?>" name="cname1">
+          <input type="text" id="scn" class="form-control validate" value="<?php echo $row['prod_name'] ?>" name="cname1">
+          <p id="subname" style="color:red;"></p>
          
         </div>
 
 
         <div class="md-form mb-4">
-          <label data-error="wrong" data-success="right" for="defaultForm-pass">Link</label>
-          <input type="text" id="defaultForm-pass" class="form-control validate" name="link1" value="<?php echo $link ?>">
+          <label data-error="wrong" data-success="right" for="defaultForm-pass"></label>
+          <input type="hidden" id="defaultForm-pass" class="form-control validate" name="link1" >
          
         </div>
 
@@ -238,7 +237,7 @@
 
       </div>
       <div class="modal-footer d-flex justify-content-center">
-        <input type="submit" class="btn btn-default" id="Update" value="Update" name="categorysubmit1">
+        <input type="submit" class="btn btn-default" id="add" value="Update" name="categorysubmit1">
       </div>
       </form>
     </div>

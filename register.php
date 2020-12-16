@@ -46,8 +46,8 @@ if (isset($_POST['register'])) {
                     $sql = $obj->insert($dbconn->conn, $name, $email, $mobile, $sques, $sans, $pass);
                     header("location:verification.php");
                 } else {
-                    echo "<script>alert('Password not');</script>";
-                    header("location:account.php");
+                    echo "<script>alert('password and confirm passsword not matched');
+                    window.location='account.php';</script>";
                 }
             }
         }
@@ -68,6 +68,8 @@ $sql = $obj->fetch($dbconn->conn, $email, $pass);
 
 foreach ($sql as $key => $row) {
 if ($row['email_approved'] == 0 && $row['phone_approved'] == 0) {
+    $_SESSION['email'] = $row['email'];
+$_SESSION['mobile'] = $row['mobile'];
 header("location:verification.php");
 } else {
 $_SESSION['userid'] = $row['id'];
@@ -75,6 +77,7 @@ $_SESSION['username'] = $row['name'];
 $_SESSION['email'] = $row['email'];
 $_SESSION['mobile'] = $row['mobile'];
 $_SESSION['admin'] = $row['is_admin'];
+$_SESSION['active'] = $row['active'];
 //print_r($_SESSION);
 //echo "<script>alert('Successfull');</script>";
 if ($_SESSION['admin'] == 1) {
@@ -103,6 +106,7 @@ if (isset($_POST['verifye'])) {
     if ($_SESSION['otp'] == $vpeotp) {
         $sql = $obj->verifyemail($dbconn->conn, $vemail);
         if ($sql) {
+            $_SESSION['abc']=1;
             echo "<script>alert('Email Verified & Now you can Login');
                     window.location='login.php';</script>";
             // header("location:login.php");
@@ -137,9 +141,9 @@ if (isset($_POST['verifym'])) {
 if (isset($_POST['rsemail1'])) {
 //Email Verification Code
 $otp = rand(1000, 9999);
-$otpm = rand(1000, 9999);
+
 $_SESSION['otp'] = $otp;
-$_SESSION['otpm'] = $otpm;
+
 $mail = new PHPMailer();
 try {
 $mail->isSMTP(true);
@@ -159,7 +163,9 @@ $mail->Subject = 'Account Verification';
 $mail->Body = 'Hi User,Here is your otp for account verification' . $otp;
 $mail->AltBody = 'Body in plain text for non-HTML mail clients';
 $mail->send();
-header('location: verification.php');
+echo "<script>alert('email verification otp send successfully');
+                window.location='verification.php';</script>";
+// header('location: verification.php');
 } catch (Exception $e) {
 echo "Mailer Error: " . $mail->ErrorInfo;
 }
@@ -170,11 +176,12 @@ echo "Mailer Error: " . $mail->ErrorInfo;
 
 //Resend Mobile
 if (isset($_POST['rsemail2'])) {
-
+    $otpm = rand(1000, 9999);
+    $_SESSION['otpm'] = $otpm;
 //Mobile Verification Code
 $fields = array(
 "sender_id" => "FSTSMS",
-"message" => "This is Test message-$name-" . $otpm,
+"message" => "This is Test message".$name." ".$otpm,
 "language" => "english",
 "route" => "p",
 "numbers" => $_SESSION['vmobile'],
@@ -211,8 +218,10 @@ echo "cURL Error #:" . $err;
 } else {
 echo $response;
 }
+echo "<script>alert('mobile verification otp send successfully');
+                window.location='verification.php';</script>";
 
-header("location:verification.php");
+// header("location:verification.php");
 }
 
 ?>

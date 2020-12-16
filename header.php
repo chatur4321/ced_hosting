@@ -8,6 +8,7 @@ include 'admin/class/productclass.php';
 $pdt = new productclass();
 
 
+
 ?>
 
 <!DOCTYPE HTML>
@@ -35,6 +36,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						$(".swipebox").swipebox();
 					});
 				</script>
+                <script type="text/javascript">
+	$(function() {
+	$('.team a').Chocolat();
+	});
+</script>
 <!--script-->
 </head>
 <body>
@@ -61,7 +67,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="active"><a href="index.php">Home <i class="sr-only">(current)</i></a></li>
                         <li><a href="about.php">About</a></li>
                         <li><a href="services.php">Services</a></li>
-                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
+
+                        <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hosting<i class="caret"></i></a>
                             <ul class="dropdown-menu">
 
                                 <?php
@@ -79,10 +87,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 ?>
                             </ul>
                         </li>
+
+                      
                         <li><a href="pricing.php">Pricing</a></li>
                         <li><a href="blog.php">Blog</a></li>
                         <li><a href="contact.php">Contact</a></li>
-                        <li><a href="cart.php"> &#x1f6d2;cart</a></li>
+                        <li><a href="cart.php"> &#x1f6d2;</a></li>
                         <?php
                         if (isset($_SESSION['username'])) {
                         ?>
@@ -97,10 +107,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                         <!-- <li><a href="logout.html">Logout</a></li> -->
                     </ul>
-
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
     </div>
 </div>
 <!---header--->
+
+
+<!-- /ehfihfle -->

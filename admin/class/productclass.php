@@ -206,7 +206,7 @@ echo "0 results";
 public function fetchpdt1($conn)
 {
 $row1 = array();
-$sql = "SELECT * FROM `tbl_product`";
+$sql = "SELECT * FROM `tbl_product` WHERE prod_parent_id=1 AND prod_available=1";
 
 $result = $conn->query($sql);
 

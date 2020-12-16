@@ -5,13 +5,13 @@ class user
 {
 
 
- public function insert($conn,$name,$email,$mobile,$security_question,$security_answer,$password1)
+ public function insert($conn,$name,$email,$mobile,$security_question,$security_answer,$pass)
 	{
      
         $sql="INSERT INTO tbl_user 
         (`email`,`name`,`mobile`,`email_approved`,`phone_approved`,`active`,
         `is_admin`,`password`,`security_question`,`security_answer`) VALUES('" . $email . "','" . $name . "',
-        '" . $mobile . "',0,0,0,0,'" . $password1 . "','" . $security_question . "','" . $security_answer . "')";
+        '" . $mobile . "',0,0,0,0,'" . $pass . "','" . $security_question . "','" . $security_answer . "')";
         
 
 
@@ -37,7 +37,8 @@ if ($conn->multi_query($sql) === TRUE) {
   }
   return $row1;
   } else {
-  echo "0 results";
+    echo "<script>alert('Invalid username or password');
+    window.location='login.php';</script>";
   }
   }
 
