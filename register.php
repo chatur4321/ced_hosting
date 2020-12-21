@@ -151,7 +151,7 @@ try {
 $mail->isSMTP(true);
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'abc@gmail.com';//dummy email
+$mail->Username = 'abc@gmail.com';//dummy email changes done today
 $mail->Password = '12345'; //dummmy pass
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
