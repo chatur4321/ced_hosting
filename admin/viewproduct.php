@@ -167,7 +167,7 @@ $obj = new productclass();
                         <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <i class="fas fa-ellipsis-v"></i>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">+                                                                                             
                         <a href="" class="btn btn-default btn-rounded mb-2 ml-2" 
                         data-toggle="modal" data-target="#modalForm<?php echo $row['id']; ?>">Edit</a>
                         <?php

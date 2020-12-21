@@ -112,7 +112,8 @@ if (isset($_POST['verifye'])) {
             // header("location:login.php");
         }
     } else {
-        echo "<script>alert('Verification Failed');</script>";
+        echo "<script>alert('verification failed');
+        window.location='verification.php';</script>";
     }
 }
 
@@ -131,7 +132,8 @@ if (isset($_POST['verifym'])) {
             // header("location:login.php");
         }
     } else {
-        echo "<script>alert('Verification Failed');</script>";
+        echo "<script>alert('verification failed');
+        window.location='verification.php';</script>";
     }
 }
 
@@ -149,12 +151,12 @@ try {
 $mail->isSMTP(true);
 $mail->Host = 'smtp.gmail.com';
 $mail->SMTPAuth = true;
-$mail->Username = 'ashutoshchaturvedi.605@gmail.com';
-$mail->Password = 'Ashu@123456789';
+$mail->Username = 'abc@gmail.com';//dummy email
+$mail->Password = '12345'; //dummmy pass
 $mail->SMTPSecure = 'tls';
 $mail->Port = 587;
 
-$mail->setfrom('ashutoshchaturvedi.605@gmail.com', 'CedHosting');
+$mail->setfrom('abc@gmail.com', 'CedHosting'); //dummy email and organisation name
 $mail->addAddress($_SESSION['vemail']);
 $mail->addAddress($_SESSION['vemail'], $_SESSION['vname']);
 

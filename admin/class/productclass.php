@@ -275,5 +275,28 @@ function countcat($name,$conn)
 
 }
 
-?>
+
+ 
+function cartdata($id,$conn)
+
+    {
+        $row1=array();
+        $sql = "SELECT * FROM tbl_product INNER JOIN tbl_product_description ON tbl_product.id=tbl_product_description.prod_id WHERE tbl_product.id='".$id."' AND prod_available=1";
+        $result = $conn->query($sql);
+
+        if ($result->num_rows > 0) {
+       
+            while ($row = $result->fetch_assoc()) {
+
+                array_push($row1, $row);
+                
+            }
+            return $row1;
+        } else {
+            echo "0 results";
+        }
+
+
+
+    }
 

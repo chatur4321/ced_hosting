@@ -162,8 +162,9 @@
                     <div class="text-center">
                     <a href="" class="btn btn-default btn-rounded mb-4" 
                     data-toggle="modal" input-type="hidden" data-target="#modalForm<?php echo $row['id']; ?>">Edit</a>
-                    <a href="class/logic.php?id5=<?php echo $row['id'] ?>" class="btn btn-warning btn-rounded mb-4"
-                     >Delete</a>
+                    <?php
+                        echo "<a onClick=\"javascript: return confirm('Please confirm deletion');\" class='btn btn-warning btn-rounded mb-2 ml-2' href='class/logic.php?id5=".$row['id']."'>Delete</a>";
+                          ?>
                     </div>
                     </td>
                   </tr>

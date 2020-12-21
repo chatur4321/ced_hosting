@@ -40,14 +40,13 @@ if(isset($_SESSION['active'])==1)
                     <input type="text" name="eotp" id="eotp" style="padding:10px;width:100%;margin-left:5px;">
                 </td>
                 <td>
-                <?php if(isset($_SESSION['rsemail1'])) echo '<input type="submit" value="Send Email" name="rsemail1" id="semail" class="a">';
+                <?php if(isset($_SESSION['vemail'])) echo '<input type="submit" value="Send Email" name="rsemail1" id="semail" class="a">';
                 else
                 {
                     echo '<input type="submit" value="Re Send Email" name="rsemail1" id="semail" class="a">';
                 }?>
-                     <!-- <input type="submit" value="Send Email" name="rsemail1" id="semail" class="a"> -->
-                    <!-- <input type="submit" value="Resend Email" name="rsemail1" id="rvemail" class="a"> -->
-                     <!-- <input type="submit" value="Verify" name=""> -->
+                    
+                    <input type="submit" value="Verify" name="verifye" id="verify" class="a">
             </tr>
             <tr>
                 <td>
@@ -70,8 +69,15 @@ if(isset($_SESSION['active'])==1)
                     <input type="text" name="motp" id="motp" style="padding:10px;width:100%;margin-left:5px;">
                 </td>
                 <td>
-                    <input type="submit" value="Send Mobile" name="rsemail2" id="semail" class="a">
+                    <!-- <input type="submit" value="Send Mobile" name="rsemail2" id="semail" class="a"> -->
                     <!-- <input type="submit" value="Resend Mobile" name="rsemail2" id="rvemail" class="a"> -->
+                    <!-- <input type="submit" value="Verify" name="verifym" id="verify" class="a"> -->
+                    <?php if(isset($_SESSION['vmobile'])) echo '<input type="submit" value="Send mobile" name="rsemail2" id="semail" class="a">';
+                else
+                {
+                    echo '<input type="submit" value="Re Send mobile" name="rsemail2" id="rvemail" class="a">';
+                }?>
+                    
                     <input type="submit" value="Verify" name="verifym" id="verify" class="a">
                 </td>
             </tr>

@@ -7,7 +7,6 @@ include("class/admindbcon.php");
 include("class/productclass.php");
 // echo "hii";
 $dbconn = new admindbcon();
-
 $obj = new productclass();
 
 

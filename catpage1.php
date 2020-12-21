@@ -23,9 +23,6 @@ if(isset($_GET['id']))
 
 					}
 
-
-				}			
-
 ?>
 
 
@@ -48,16 +45,16 @@ if(isset($_GET['id']))
 												?>
 											<div class="col-md-3 linux-price">
 												<div class="linux-top">
-												<h4><?php echo $value1['prod_name']; ?></h4>
+												<h4><?php echo $val['prod_name']; ?></h4>
 												</div>
 												<div class="linux-bottom">
-													<h5 style="border-bottom:1px solid #e7663f">$<?Php echo $value1['mon_price'];?> <span class="month">per month</span></h5>
+													<h5 style="border-bottom:1px solid #e7663f">$<?Php echo $val['mon_price'];?> <span class="month">per month</span></h5>
                                                     
-                                                    <h5>$<?Php echo $value1['annual_price']; ?> <span class="month">per year</span></h5>
+                                                    <h5>$<?Php echo $val['annual_price']; ?> <span class="month">per year</span></h5>
 
                                                     <?php 
                                                     
-                                                    $desc=$value1['description'];
+                                                    $desc=$val['description'];
                                                     $arr=json_decode($desc,true);
                                                   
                                          
@@ -70,16 +67,16 @@ if(isset($_GET['id']))
 													<li><strong>and Width :</strong><?php echo $arr['band']; ?></li>
 													<li><strong>Language :</strong><?php echo $arr['lang']; ?></li>
 													<li><strong>Free Mail :</strong><?php echo $arr['mail']; ?></li>
-												    <li><strong>SKU :</strong><?php echo $value1['sku']; ?></li>
+												    <li><strong>SKU :</strong><?php echo $val['sku']; ?></li>
 													<li><strong>location</strong> : <img src="images/india.png"></li>
 													</ul>
 												</div>
 											
 												<a href="" class="btn btn-default btn-rounded mb-4" 
-                    data-toggle="modal" data-target="#modalForm<?php echo $value1['prod_id'];?>">Buy Now</a>
+                    data-toggle="modal" data-target="#modalForm<?php echo $val['prod_id'];?>">Buy Now</a>
 
 
-					<div class="modal fade" id="modalForm<?php echo $value1['prod_id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+					<div class="modal fade" id="modalForm<?php echo $val['prod_id'];?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
   aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -93,8 +90,8 @@ if(isset($_GET['id']))
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
         <label data-error="wrong" data-success="right" for="defaultForm-email">Product Name</label>
-          <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $value1['prod_name'] ?>" readonly name="prod_name">
-          <input type="hidden" name="hidden" value="<?php echo $value1['prod_id']?>">
+          <input type="text" id="defaultForm-email" class="form-control validate" value="<?php echo $val['prod_name'] ?>" readonly name="prod_name">
+          <input type="hidden" name="hidden" value="<?php echo $val['prod_id']?>">
         </div>
 
        
@@ -107,8 +104,8 @@ if(isset($_GET['id']))
           <select class="form-control validate" name="viewplan" required>
           <option value="" selected disabled hidden>Please Select Your Plan</option>
 		 
-		  <option value="<?php echo $value1['mon_price'];?>">Monthly</option>
-		  <option value="<?php echo $value1['annual_price'];?>">Annually</option>
+		  <option value="<?php echo $val['mon_price'];?>">Monthly</option>
+		  <option value="<?php echo $val['annual_price'];?>">Annually</option>
 		  
 		  
           
@@ -219,7 +216,7 @@ require 'footer.php';
 } 
    else
 {
-	echo '<script>alert("Please provide valid  id")
+	echo '<script>alert("Please provide valid  id");
             window.location="index.php"</script>';
 }
 ?>
